@@ -1,0 +1,6 @@
+
+# BEGIN BuddyPress Docs
+RewriteEngine On
+RewriteBase /wordpressbuddyPress/docs/new-doc-for-learning-without-teachers/
+RewriteRule (.+) ?bp-attachment=$1 [R=302,NC]
+# END BuddyPress Docs

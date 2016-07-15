@@ -1,0 +1,6 @@
+
+# BEGIN BuddyPress Docs
+RewriteEngine On
+RewriteBase /wordpressbuddyPress/docs/document-for-big-question-1/
+RewriteRule (.+) ?bp-attachment=$1 [R=302,NC]
+# END BuddyPress Docs

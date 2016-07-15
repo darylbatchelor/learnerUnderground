@@ -1,0 +1,1532 @@
+/*
+Theme Name: sole
+Theme URI: http://underscores.me/
+Author: Daryl Batchelor
+Author URI: http://underscores.me/
+Description: first test buddyPress Theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sole
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+sole is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+}
+
+body {
+	margin: 0;
+	background-color: #ececec;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+a {
+	background-color: transparent;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input {
+	line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+	color: rgba(0, 0, 0, .8);
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: .6em 1em .4em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb;
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+textarea {
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+	color: #e27a3f;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:visited {
+	color: #e27a3f;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #e27a3f;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation li {
+	float: left;
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul ul li {
+
+}
+
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+}
+
+.main-navigation ul ul :hover > a,
+.main-navigation ul ul .focus > a {
+}
+
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a.focus {
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a,
+.main-navigation .current-menu-ancestor > a {
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {  
+margin: 0 0.5em 1.5em;
+}
+.widget h1{
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+	max-width: 100%;
+}
+
+#groups-widget ul, #groups-widget li,
+#member-widget ul, #member-widget li{
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+}
+
+#member-widget li{
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+
+--------------------------------------------------------------*/
+/* Table of contents
+1.0 Reset
+2.0 Global: 
+-  Headings 
+-  Text Elements 
+–  Links 
+Alignment 
+Text meant only for screen readers 
+Clearing 
+Colors
+3.0 Menu
+4.0 Content: 
+-  Footer 
+–  Header 
+-  Layout
+-  Output
+5.0 Asides
+6.0 Media
+7.0 Navigation
+8.0 Comments*/
+
+.site{
+  margin: 0 auto;
+  max-width: 1120px;
+}
+
+.content-area {
+  float: right;
+  margin: 0 0 0 -25%;
+  width: 100%;
+
+
+}
+.site-content {
+  margin: 0 0 0 25%;
+}
+.full-width .site-content{
+  margin: 0;
+}
+.site-main .widget-area {
+  float: left;
+  overflow: hidden;
+  width: 25%;
+}
+.site-footer {
+  clear: both;
+  width: 100%;
+}
+.site-main{
+  clear: both;
+  padding: 0px 30px 30px 30px;
+}
+.site-info{
+  padding: 20px;
+}
+
+
+/*-------------------------------------
+
+4.0 Content: 
+-  Footer 
+–  Header 
+-  Layout
+-  Output
+
+-----------------------------------------*/
+
+/*-- header--*/
+
+#branding{
+  padding: 0 0px 30px 0px;
+}
+.site-title{
+  float: left;
+  padding: 20px 0 0 0;
+  width: 50%;
+  padding-top: 0;
+}
+.site-title h1{
+  line-height: 0.6;
+  padding-top: 0;
+}
+.site-title h1 a{
+  font-size: 48px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  padding: 10px 0 0 0;
+  text-decoration: none;
+  color:#000;
+  padding-top: 0;
+}
+.user-avatar{
+  float: right;
+}
+
+.user-avatar img{
+ border-radius: 100%;
+}
+
+.user-avatar h4{
+margin-top: 3px;
+text-align: center;
+}
+
+.user-avatar ul{
+list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.user-avatar ul li{
+float:right;
+margin: 0 10px;
+}
+
+.button.logout{
+	text-decoration: none;
+	background-color: #e27a3f;
+	padding: 15px 25px;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+.home-page #headimg{
+	height:470px;
+}
+
+.logged-in.home-page #headimg{
+	height: 200px;
+}
+
+#headimg{
+	clear: both;
+}
+
+#about-section{
+  background-color: rgba(1, 1, 1, 0.5);
+  color: #fff;
+  float: left;
+  margin: 60px 0 0 20px;
+  padding: 20px;
+  width: 50%;
+}
+#signup-section{
+  background-color: rgba(1, 1, 1, 0.8);
+  color: #fff;
+  float: right;
+  margin: 60px 20px 0 0;
+  padding: 20px;
+  width: 30%;
+}
+/*-- navigation --*/
+.navigation-main {
+  background: #333;
+  clear: both;
+  display: block;
+}
+.navigation-main a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  padding: 15px 30px;
+}
+
+#search-wrapper{
+  float: left;
+
+  padding: 12px 0 0 20px;
+}
+
+#site-navigation div ul.menu{
+	    float: right;
+   
+    list-style: none;
+   
+}
+
+#site-navigation div ul.menu  li{
+	    float: right;
+
+}
+
+/* ----------------------------------
+Activity section front page
+------------------------------------*/
+
+#buddypress #whats-new-avatar a img{
+	border-radius: 100%;
+}
+
+#buddypress .activity-list .activity-avatar {
+  float: right;
+}
+
+#buddypress ul.item-list li img.avatar {
+  float: right;
+  margin: 0;
+  border-radius: 100%;
+}
+
+#buddypress .activity-list .activity-content {
+  margin: 0 70px 0 0;
+}
+
+#buddypress .activity-list .activity-content .activity-header,
+#buddypress .activity-list .activity-content .comment-header {
+  color: #888;
+  font-size: 90%;
+}
+
+#buddypress div.activity-meta a {
+  padding: 4px 8px;
+}
+
+#buddypress div.activity-comments div.acomment-meta {
+  color: #888;
+  font-size: 80%;
+  margin: 0 40px 0 0;
+}
+
+#buddypress div.activity-comments div.acomment-content {
+  font-size: 80%;
+  margin: 5px 40px 0 0px;
+}
+
+#buddypress div.activity-comments {
+  margin: 0 0 0 20px;
+  overflow: hidden; /* IE fix */
+  position: relative;
+  width: auto;
+  clear: both;
+}
+
+#buddypress button,
+#buddypress a.button,
+#buddypress input[type=submit],
+#buddypress input[type=button],
+#buddypress input[type=reset],
+#buddypress ul.button-nav li a,
+#buddypress div.generic-button a,
+#buddypress .comment-reply-link,
+a.bp-title-button {
+  background: #a3a3a3;
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+#buddypress button:hover,
+#buddypress a.button:hover,
+#buddypress a.button:focus,
+#buddypress input[type=submit]:hover,
+#buddypress input[type=button]:hover,
+#buddypress input[type=reset]:hover,
+#buddypress ul.button-nav li a:hover,
+#buddypress ul.button-nav li.current a,
+#buddypress div.generic-button a:hover,
+#buddypress .comment-reply-link:hover {
+  background: #777;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+
+/*-- nav bar --*/
+#buddypress a.button.bp-primary-action{
+  background: #e67e22;
+}
+.entry-title a.button{
+  font-size: 2.2rem;
+}
+
+.entry-title a.button:visited,
+.entry-title a.button:hover{
+  color: #fff;
+}
+
+#buddypress div.item-list-tabs {
+  background: #e67e22;
+  clear: none;
+  overflow: hidden;
+}
+#buddypress div.item-list-tabs#subnav {
+  background:#a3a3a3;
+  color: #fff;
+  margin: 10px 0 10px;
+  overflow: hidden;
+}
+#buddypress div.item-list-tabs ul li a,
+#buddypress div.item-list-tabs ul li span {
+   display: block;
+   padding: 5px 10px;
+   text-decoration: none;
+   color: #fff;
+}
+#buddypress div#item-body{
+  float: right;
+  width: 75%;
+}
+.bp-user #buddypress div#item-header {
+  float: left;
+  overflow: hidden;
+  width: 25%;
+}
+
+/* -- group loop on front page --*/
+#buddypress .solesession-front-page{
+	width: 96%;
+	background-color: #fff;
+	margin: auto;
+    padding: 0 20px;
+    margin-bottom: 50px;
+    float:right;
+        border-radius: 5px;
+}
+
+.solesession-front-page h1{
+	text-align: center;
+
+}
+
+.solesession-front-page ul li .item{
+	width:100% !important;
+	overflow: hidden;
+
+}
+
+.solesession-front-page ul li .item a{
+	width:60%;
+
+}
+
+#buddypress ul.item-list li.group-has-avatar{
+
+}
+.dgb_in_group_container{
+	width:auto;
+	float: right;
+	display: inline-block;
+	width: 39%;
+}
+.avatar-wrap{
+	    line-height: 67px;
+}
+
+#dgb_in_group_list{
+margin:0!important;
+    height: 50px;
+ 
+    float: left;
+}
+.avatar-wrap div.group-button{
+	float: right;
+ 
+}
+
+.in-group-avatar{
+	border:none!important;
+	    float: right;
+	    width: 50px;
+	    padding: 0 0 0 10px!important;
+}
+
+a.group-button{
+	background-color: #e27a3f !important;
+	border-bottom: 3px solid #bd6e42!important;
+	position:relative;
+	
+	border-radius:0!important;
+}
+
+
+a.group-button:hover{
+	background-color: #e27a3f !important;
+	border-bottom:none!important;
+	top:2px;
+}
+
+/*-- create sole front page --*/
+
+.topic-wrap{
+	width: 100%;
+	float: right;
+}
+
+.subject-icon{
+	    padding: 0 10px;
+}
+
+.topic-wrap h1{
+	cursor: pointer;
+	color:#e27a3f;
+	display: inline-block;
+}
+
+div.create-group-wrap{
+	float:right;
+	width: 100%;
+}
+
+div.create-group-wrap h3{
+width: 70%;
+float: left;
+}
+
+form.create-group-button{
+	width: 25%;
+	float: right;
+}
+
+input[type=submit].main-button{
+	background-color: #e27a3f !important;
+	border-bottom: 3px solid #bd6e42!important;
+	position:relative;
+	box-shadow:none;
+	border-radius:0!important;	
+	margin-top:20px;
+}
+
+input[type=submit].main-button:hover{
+	background-color: #e27a3f !important;
+	border-bottom:none!important;
+	top:2px;
+	box-shadow:none;
+}
+
+
+
+.carret-up, .carret-down{
+font-size: 0.7em;
+
+}
+
+.clearfix:after {
+
+
+    content: ".";
+
+
+    display: block;
+
+
+    clear: both;
+
+
+    visibility: hidden;
+
+
+    line-height: 0;
+
+
+    height: 0;
+
+    width: 100%;
+
+}
+
+ 
+
+
+.clearfix {
+
+
+    display: inline-block;
+
+}
+
+.hidden{
+	display: none;
+}
+
+
+
+/*-------------------------------------
+
+Profile
+-----------------------------------------*/
+
+.profile{
+	background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*-- friendship buttons--8=*/
+
+.generic-button .friendship-button{
+	background-color: #e27a3f !important;
+	border-bottom: 3px solid #bd6e42!important;
+	border-radius:0!important;
+	position: relative;
+}
+
+.generic-button .friendship-button:hover{
+	background-color: #e27a3f !important;
+	border-bottom:none!important;
+	top:2px;
+}
+
+/*-------------------------------------
+
+5.0 Asides
+-----------------------------------------*/
+
+aside{
+	background-color: #fff;
+	padding-left:20px;
+	padding-right: 20px;
+	    border-radius: 5px;
+}
+
+#bp-docs-all-docs li{
+	background-color: rgba(0,0,0,0)!important;
+}
+
+li.sidebar-activity {
+width: 100%!important;
+
+}
+
+.avatar{
+	border-radius: 100%;
+}
+
+/*--- menu for profile page --*/
+
+
+ .menu-bp-container ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    
+}
+li.menu-parent > a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.menu-parent > a:hover, li.menu-parent {
+    
+}
+
+li.menu-parent {
+    display: inline-block;
+}
+
+ul.sub-menu{
+    display: none;
+    position: absolute;
+   
+    background-color: #fff;
+    color:#333333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+ul.sub-menu li.menu-child, li.menu-child > a {
+    color: black!important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    float: none!important;
+}
+
+li.menu-child ul.sub-menu{
+    position: relative;
+        box-shadow: 0 0 0;
+}
+
+.sub-menu li:hover {background-color: #f1f1f1}
+
+.menu-parent:hover .sub-menu {
+    display: block;
+}
+
+/*-- hides the sub nav --*/
+#buddypress div.item-list-tabs#subnav{
+	display: none!important;
+}
+
+/*------------------------------------
+
+ Group pages 
+
+-------------------------------------*/
+
+
+/*------Single - header ----*/
+
+.custom-group-header-wrap{
+text-align: center;
+}
+
+.start-sole-button input.main-button{
+font-size: 3em!important;
+margin: 50px;
+border-radius: 5px!important;
+}
+
+
+/*-- update form --*/
+
+#buddypress form#whats-new-form p.activity-greeting{
+	line-height: 1.5em!important;
+}
+
+/*------------------------------------
+
+ custom post learnings submit pages 
+
+-------------------------------------*/
+#submit-learning{
+
+
+}
+
+#submit-learning p{
+	text-align: center;
+	
+}
