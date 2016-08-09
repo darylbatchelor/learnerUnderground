@@ -1457,7 +1457,7 @@ li.menu-parent {
 ul.sub-menu{
     display: none;
     position: absolute;
-   
+  
     background-color: #fff;
     color:#333333;
     min-width: 160px;
@@ -1477,6 +1477,7 @@ ul.sub-menu li.menu-child, li.menu-child > a {
 li.menu-child ul.sub-menu{
     position: relative;
         box-shadow: 0 0 0;
+
 }
 
 .sub-menu li:hover {background-color: #f1f1f1}
@@ -1488,6 +1489,10 @@ li.menu-child ul.sub-menu{
 /*-- hides the sub nav --*/
 #buddypress div.item-list-tabs#subnav{
 	display: none!important;
+}
+
+#buddypress #activity-stream{
+	margin-top:0!important;
 }
 
 /*------------------------------------

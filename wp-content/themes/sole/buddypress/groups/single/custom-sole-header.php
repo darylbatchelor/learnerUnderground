@@ -15,6 +15,8 @@
  * @since 1.2.0
  */
 do_action( 'bp_before_group_header' ); ?>
+
+
 <div class="custom-group-header-wrap">
 <?php if ( bp_group_has_members( 'exclude_admins_mods=0') ) : 
   

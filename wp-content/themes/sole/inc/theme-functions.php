@@ -16,6 +16,20 @@
 *Function to add a phrase before the activity stream entry
 */
 
+//add myprofile to top navigation menu
+function dgb_ad_my_profile_to_main_nav($items){
+	//Logged in user only
+	if (! is_user_logged_in()) {
+		return $items;
+	}
+	global $bp;
+	$profile_link = '<li class="myprofile-link"><a href="' . $bp->loggedin_user->domain . '">My Profile</a></li>';
+	$items = $profile_link . $items;
+	return $items;
+}
+
+add_filter('wp_nav_menu_items', 'dgb_ad_my_profile_to_main_nav');
+
 function sole_filter_activityaction($content){
 	return 'The following occurred: ' . $content;
 }
@@ -109,11 +123,19 @@ if ($_POST['join']) {
 	  elseif (!isset($_POST['start']) && !isset($_POST['end'] ) && !isset($_POST['join']) && groups_is_user_member(  $user_id, $group_id ) )  {
 
 	  	if (empty(groups_get_groupmeta(bp_get_group_id(),'start-time'))) {
+	  		echo '<h2>';
 	  		_e('The SOLE has not yet started...', 'sole');
-	  		echo "<br>";
+	  		echo "</h2><br>";
+	  		if (groups_is_user_admin($user_id, $group_id)) {
+	  			
 	  		echo '<form class="start-sole-button" action="" method="post">
 	   	        	<input class="main-button" type="submit" name="start" value="Start SOLE Session!">
 	        		</form>';
+	  		} else {
+	  			echo '<h2>Nearly there, the SOLE creator will be starting the session soon!</h2>';
+
+	  		}
+	  		
 	  	} else {
 	  		//check to see if member has already started before
 	  		$joined_members = groups_get_groupmeta( bp_get_group_id(), 'group-members');
@@ -131,7 +153,7 @@ if ($_POST['join']) {
 				insert_JS_Countdown_timer($finish_time); 
 
 
-
+// check to see if the member has previously joined the group? If no allow them to start the session
 			} elseif (!in_array($user_id, $joined_members) && groups_is_user_member( get_current_user_id(), bp_get_group_id() )){ 
 
 	  			
@@ -148,11 +170,11 @@ if ($_POST['join']) {
 	} elseif ($_POST['start'])  {
 
 
-		if (empty(groups_get_groupmeta(bp_get_group_id(),'start-time'))) {
+		if (empty(groups_get_groupmeta(bp_get_group_id(),'start-time')) && groups_is_user_admin($user_id, $group_id)) {
 			$user_id = get_current_user_id ();
 			$start_time = current_time('timestamp');
 	//5400 = 1.5 hours
-	$finish_time = $start_time + 30;
+	$finish_time = $start_time + 5400;
 
 	// save the time stamp in the group meta
 		groups_update_groupmeta(  bp_get_group_id(),  'start-time',  $start_time);
@@ -160,12 +182,14 @@ if ($_POST['join']) {
 		$member_array = array();
 		array_push($member_array, $user_id);
 		groups_update_groupmeta(  bp_get_group_id(),  'group-members',  $member_array);
-echo "Sole started Here <br> need to display video chat option for the starter person<br>";
+echo "Sole started Here <br> need to display video chat option for the starter person<br>"; ?>
 
-insert_JS_Countdown_timer($finish_time); 
+<?php dgb_insert_hangout_btn();?>
+	
+<?php insert_JS_Countdown_timer($finish_time); 
 
 		} else {
-
+// else start button pressed and not group admin/creator
 				echo 'Sole joined after started by another member';
 				//update group meta to add to total members
 				// first check that there is at least more than 30 minutes left
@@ -247,7 +271,7 @@ document.getElementById("bpscountdowntimer").innerHTML = countdownCompleted;
 } else {
 
 if (futureTime > currentTime) {
-document.getElementById("bpscountdowntimer").innerHTML = dayFloor + " Days " + hourFloor + " Hours " + minuteFloor + " Minutes " + secondFloor + " Seconds ";
+document.getElementById("bpscountdowntimer").innerHTML = hourFloor + " Hour " + minuteFloor + " Minutes " + secondFloor + " Seconds ";
 }
 }
 }
@@ -363,5 +387,46 @@ function dgb_global_vars() {
 }
 add_action( 'parse_query', 'dgb_global_vars' );
 
+function dgb_insert_hangout_btn(){
+ //group loop to get all group members and their google ids for hangout js function below 
+ $group_id = bp_get_group_id();
+
+if ( bp_has_groups() ) {
+ 
+  
+     while ( bp_groups() ) : bp_the_group(); 
+   		 if (bp_group_is_admin()) { 
+
+			 if ( bp_group_has_members('group_id=' . $group_id ) ) { 
+			$google_id_array = array();
+			 
+	 
+	 
+				   while ( bp_group_members() ) : bp_group_the_member();
+				 
+				
+				 
+				$user_id = bp_get_group_member_id(); //current logged in user
+				$field = '3'; // the ID of the field referenced in table wp_bp_xprofile_fields
+				$user_google_id = xprofile_get_field_data( $field, $user_id );
+				array_push($google_id_array, "{ id: '" . $user_google_id ."', invite_type:'PROFILE'}");
+				
+				   endwhile; 
+				 $invite_list =  join(", ", $google_id_array);
+				 
+			 };
+ 		 };
+ 
+     endwhile; 
+    
+ 
+ }; echo 'invites="['. $invite_list . ']"'; ?> 
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<g:hangout render="createhangout" invites="[<?php echo $invite_list; ?>]"></g:hangout>
+
+</script>
+<?php
+}
 
 ?>
